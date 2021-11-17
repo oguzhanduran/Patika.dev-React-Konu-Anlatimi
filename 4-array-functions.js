@@ -60,8 +60,7 @@
 
 // .find()
 
-// array'iniz içersinde verdiğiniz koşullarla bir arama işlemi yapar.
-
+// array'iniz içersinde verdiğiniz koşullarla bir arama işlemi yapar. Koşula uyan ilk veriyi döndürür diğerlerine geçmez.
 // const users = [{
 //     name:"Mehmet"
 // }, {

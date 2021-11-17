@@ -25,6 +25,8 @@
 
 // Sonrasında slugify isminde bir tane modülümüz vardı o modülü internetten npm.js üzerinden indirdik ve kullanmaya çalıştık dışardaki bir modulü nasıl indirebilirim nasıl kullanabilirim onu öğrenmiştik 
 
+// 1-My-Module
+
 //Sonrasında ise kendi modülümüzü yazmayı denedik
 
 
@@ -32,4 +34,29 @@
 
 //sonrasında mymodule.js isminde bir module yazdık ve sonrasında bunları dışa aktardık. ---> 
 // import hello, {topla, cıkar, text, user, users} from "./my-module.js";  şeklinde.
+// Niye dışa aktardık? Çünkü index.js dosyasında kullanabilmek amacıyla bu bir modülse başka bir yerde import edilip kulllanilabilmeli.
 
+// Sonrasında default "varsayılan" olarak bir javascript verisi nasıl dışarı aktarılır onu konuştuk.
+
+// bunu export default ile yapıyoruz
+
+export default name => {
+    // console.log("Hello " + name)
+    console.log(`Hello ${name}`)
+} // Tek bir parametre varsa paranteze ihtiyaç yok.
+
+//export default kullanarak parantezlerin içine yazmadan dışarda doğrudan alabiliyorduk. Javascript'in değişken tanımlama kurallarına uyarak aşağıdaki hello gibi herhangi bir isimde yazabiliriz. Normal şekilde dışa aktardıklarımızı da süslü parantez içinde alabiliyorduk topla, cıkar vs.
+
+// import hello, {topla, cıkar, text, user, users} from "./my-module.js"; 
+
+// 2- CallBack
+
+// node fetch kütüphanesini kullanarak herhangi bir veri kaynağına bağlanıp onun içeriğini alıp ekranda göstermeye çalıştık, ordaki işlemleri sıraya koymayı konuşmustuk daha cok.
+
+// fetch yapısı çok karmaşık olduğu için daha basit hale getirebilmek adına async await yapısını öğrendik. async await yapısında async fonksiyonunda await yapısını kullanıyorduk asengron işlemlerimizi sıraya koyabilmek adına.
+
+//async'de get data gibi isimlendirilmiş bir fonksiyon kullanmak istemiyorsam bunu anonim olarak nasıl yazarım diye konuştuk. Burda axios karşımıza çıktı onun note fetch'e göre avantanjlarından bahsettik. Mesela fetch'de 2 defa  await yazmak durumunda kaldık json() parse işlemi olduğu için o yüzden de axios'u kullanalım hemde bu json() işlemini yapmayalım ve bizim kodumuz syntax olarak temiz olmaya çalışssın. 
+
+// 3- Promise
+
+// Sonra promise yapısına geçtik herhangi bir fonksiyonda promise return ettiğimizde resolve ve reject adında o fonksiyonun içersinde herhangi bir işlem yappıktan sonra bir veriyi resolve edebilirsiniz veya hataya düşüyorsa eğer onu reject edebiliyorduk 
