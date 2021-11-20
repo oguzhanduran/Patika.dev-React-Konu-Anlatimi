@@ -103,28 +103,28 @@
 
 // componentlerimizde koşullu render işlemi yapabilmemiz için izlememiz gereken adımlar söyle.
 
-import './App.css';
+// import './App.css';
 
-const name = "Mehmet"
-const surName = "Seven"
-const isLoggedIn = false; // Bu true olursa isloggedIn yazısı görünür false olursa görünmez.
-//false olursa Giriş yapmadınız yazısı ekranda görünür.
+// const name = "Mehmet"
+// const surName = "Seven"
+// const isLoggedIn = false; // Bu true olursa isloggedIn yazısı görünür false olursa görünmez.
+// //false olursa Giriş yapmadınız yazısı ekranda görünür.
 
-// Onun altındada ternary operatörünü kullarak işlemi gerçekleştirdik.
+// // Onun altındada ternary operatörünü kullarak işlemi gerçekleştirdik.
 
-function App() {
-  return(
-    <>
-      {/* <h1>{isLoggedIn && `Benim adım ${name}, soyadım ${surName}`}</h1>
-      {!isLoggedIn && "Giriş yapmadınız."} */}
+// function App() {
+//   return(
+//     <>
+//       {/* <h1>{isLoggedIn && `Benim adım ${name}, soyadım ${surName}`}</h1>
+//       {!isLoggedIn && "Giriş yapmadınız."} */}
 
-<h1>{isLoggedIn ? `Benim adım ${name}, soyadım ${surName}` : "Giriş yapmadınız."}</h1>
+// <h1>{isLoggedIn ? `Benim adım ${name}, soyadım ${surName}` : "Giriş yapmadınız."}</h1>
 
-    </>
-  )
-}
+//     </>
+//   )
+// }
 
-export default App;
+// export default App;
 
 //--------------------------------------------------------------------------------------------------------------------
 
@@ -135,3 +135,109 @@ export default App;
 // Biz react'i create-react-app olmadan kullanabiliyoruz. React'in JavaScript dosyasını aynı jquery'yi sayfamıza dahil eder gibi dahil edip yine kullanabiliiriz. Ama o zaman bizim geliştirme ortamı, test ortamı web pack ayarları gibi durumları göze almamız lazım ve bunlarla uğraşmak bazen oldukça can sıkıntısı ve zaman kaybına neden olabiliyor ayrıca burda hazır yapılmışı var ve üzerine gitmek en kolayı gibi geliyor. Eğer kendinize özel bir şey yapmak isterseniz create-react-app gibi bir repo olusturup bunun gibi çalışan bir servis oluştrup kullanabiliriz.
 
 // Yarn start komutuyla birlikte default olarak 3000 portunda çalışmaya başlıyor. 
+
+// Biz componentler hazırladık ve hazırladığımız componentleri app.js dosyasında kullandık. En küçük birimi bile component haline getirmek render'ın önüne geçmek için önemli bir nokta. Eğer projemizi doğru bir şekilde ayırırsak gereksiz render işleminden kurtulma olanağı sağlayabilirsiniz. 
+
+// Component olusturmak için ihtiyacımız olan tek şey bir fonksiyon, önceleri fonksiyon componentler yokken class componentler varken bunların yazımı biraz daha karmasık olabiliyordu. Ama react'in hooks yapısıyla beraber function componentler hayatimıza girdi ve bir component olusturmak kolaylastı. Yani sadece bir fonksiyon olusturmak ve onu dısarı aktarmak yeterli oluyor.
+
+// Daha sonra JSX konnuşmaya başladık burda HTML görünümlü yazdığımız ifadenin aslında bir javascript kodu olduğunu konuştuk, burda yazdığımız Javascript ifadesi react tarafından yorumlanıyor ve aslında birer javascript fonksiyonu haline getiriliyor. Bize ne fayda sağlıyor bir sürü etiket component vs çağırmak kullanmak istediğimizde o iç içe fonksiyonları yazmak can sıkıcı olabilir proje içinden çıkılmaz bir hale gelebilir. Belki önceki gibi fonksiyonlarla çalışıyor olsaydık react bu kadar populer olmayacaktı bu JSX'in çok büyük bir payı var bu konuda.
+
+// Sonrasında JSX'deki kurallardan bahsettik JSX'de birden fazla component'i kullanacaksak onları render ediceksek onları bir <div></div> veya react'in bize verdiği "<></>" veya <React.Fragment> </React.Fragment> fragmment nesnesini kullanmamız gerekiyor. 
+
+// if class for gibi özel tanımlı keywordleri gördük. O yüzden biz burda javascript kodu yzdığımız için o özel tanımlı ifadeleri kullanmamaya özen göstermemiz gerekiyordu mesela for özel tanımlı olduğu için react'de onun yerine HTMLfor tag'ini kullandık. Direk for'u kullanırsak console'da hatayı görüntüleyebiliriz.
+
+// Sonra koşullu render olayına baktık o neydi eğer şu oluyorsa onu render et olmuyorsa bunu render et gibi koşula gidebiliyorduk. friends varsa render işlemini yap yoksa herhangi bir işlem yapma gibi.
+
+//--------------------------------------------------------------------------------------------------------------------
+
+// PROPS
+
+// Props Nedir? Nasıl Kullanılır?
+
+// Bu derste Reactin en önemli konularından biri olan Props konusuna bakıcaz. Props dediğimiz şey oluşturmak istediğimiz componentlerde bir parametre geçmek isteyebiliriz o parametrelerle o componentlerin initial görüntüsünü oluşturmak isteyebiliriz işte bu durumlarda kullanabileceğimiz bir yapı.
+
+// Mesela biz aşağıda loggedIn durumuna göre kullanıcının adını soyadını veya giriş yapmadınız şeklindeki mesajı dışarda oluşturcağımız bir component haline getirelim. Onu kullanarak çağıralım ve onu gösterelim.
+
+// user.js adında bir component olusturduk.
+
+// import './App.css';
+// import User from './components/user'
+
+// function App() {
+//   return(
+//     <>
+//     <User name="Mehmet" surName="Seven" isLoggedIn={true} age={29}/>
+//     </>
+//   )
+// }
+ 
+// export default App;
+
+// Kendi yazacağımız User componentine parametreler geçtik. Gönderdiğimiz tüm propertyler fonksiyonumuzdaki ilk parametreye düşüyor. Geçmiş olduğumuz name property'sini hazırlamış olduğumuz componentte kullanmak için ne yapmamız gerekiyor. User componentine props parametresi olarak gelir.
+
+// isLoggedIn bir boolen değer olduğu için onu string şekilde gönderemeyiz onu süslü parantezin içine alarak göndermeliyiz.
+
+// surName ={"Seven"} şeklindede gönderebilirim.
+
+// Burda göndermiş olduğumuz propertylerin sırasıyla user.js'de parametreleri aldığımız sıranın hiçbir önemi yok. Herhangi bir sırayla alıp kullanabiliriz.
+
+//--------------------------------------------------------------------------------------------------------------------
+
+// Döngülerde "key" prop'u
+
+// şimdide elimizdeki component'i bir array geçicez yani prop olarak bir array vericez ve bu array'i o component'in altında listelemeye çalışcaz.
+
+// import './App.css';
+// import User from './components/user'
+
+// function App() {
+//   return(
+//     <>
+//     <User 
+//     name="Mehmet" 
+//     surName="Seven" 
+//     isLoggedIn={true} 
+//     age={29}
+//     friends={["Ahmet", "Tayfun", "Gökhan", "Ayşe", "Fatma"]}
+//     />
+//     </>
+//   )
+// }
+ 
+// export default App;
+
+import './App.css';
+import User from './components/user'
+
+const friends = [
+  {
+    id: 1,
+  name: "Ahmet"
+}, 
+{
+  id: 2,
+  name: "Tayfun"
+}, 
+{
+  id: 3,
+  name: "Gökhan"
+}
+]
+// Yukarıdaki gibi bırakırsak hata alırız çünkü biz doğrudan o array elemanını yazdırıyoruz. Ama artık biz bir array'in altında objeler gönderiyoruz friend.name dememiz gerekiyor. user.js dosyasında.
+function App() {
+  return(
+    <>
+    <User 
+    name="Mehmet" 
+    surName="Seven" 
+    isLoggedIn={true} 
+    age={29}
+    friends={friends}
+    />
+    </>
+  )
+}
+ 
+export default App;
+
+
