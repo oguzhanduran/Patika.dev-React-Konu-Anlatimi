@@ -335,7 +335,9 @@
 
 // Sonrasında default props konusuna baktık. Bu da eğer herhangi bir prop'a bir veri girilmediyse boş geçildiyse ona var sayılan olarak bir seyler atamak istiyorsak o zaman kullanabileceğimiz bir tanım. Eğer zorunlu olarak işaretlenmiş bir alan prop olarak gönderilmediyse çağrıldığında burda verdiğimiz default props'u kullanırak çalıştırır. Yani kullanıcı prop'u girmedi diye bunu girmek zorundasın demez, eğer aşağıda default prop verirsek.
 
+//--------------------------------------------------------------------------------------------------------------------
 
 
+// Döngülerde en dıştaki elemana mutlaka verilmesi gereken prop hangisidir? -> key
 
-
+// Prop Types tanımı yapılırken kullanılan "shape" methodu ne işe yarar? Belirli bir şekilde nesne tanımı yapmayı sağlar.
