@@ -6,11 +6,10 @@ const initialFormValues = { fullName: "", phone_Number: ""} // Tüm girilen inpu
 
 function Form({addContact, contacts}) { // Forma birden fazla isim eklenmesini sağladık. 
 
-
     const [form, setForm] = useState(initialFormValues)
 
     useEffect(() => {
-        setForm(initialFormValues); 
+        setForm(initialFormValues)
     }, [contacts]) // Contact değişmisse input'un içini boşalt diyoruz.
 
     const onChangeInput = (e) => {
@@ -40,21 +39,25 @@ function Form({addContact, contacts}) { // Forma birden fazla isim eklenmesini s
         <form onSubmit={onSubmit}>
 
         <div>
-        <input name="fullName" 
+        <input 
+        name="fullName" 
         placeholder="Full Name" 
         value={form.fullName}
-        onChange={onChangeInput}/>
+        onChange={onChangeInput}
+        />
         </div>
         
         <div>
-        <input name="phone_Number" 
+        <input 
+        name="phone_Number" 
         placeholder="Phone Number" 
         value={form.phone_Number}
-        onChange={onChangeInput}/>
+        onChange={onChangeInput}
+        />
         </div>
 
-        <div>
-            <button>Add</button>
+        <div className="btn">
+            <button> Add</button>
         </div>
 
         </form>
