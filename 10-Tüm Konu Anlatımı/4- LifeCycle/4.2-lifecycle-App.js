@@ -74,3 +74,30 @@ function App() {
 
 export default App;
 
+
+//------------------------------------------------------------------------------------------------------------------
+
+import React from 'react'
+
+function List( { ToDoApp } ) {
+    return (
+        <div>
+           <ul>
+               {
+                ToDoApp.map((tasks, i) => ( 
+                <li key={i}>{tasks.task}</li>
+                ))}
+           </ul>
+        </div>
+    )
+}
+
+export default List
+
+// Eklemiş olduğumuz kayıtları bu componentte göstericez.
+
+// List( { ToDoApp } ) ile ToDoApp'den gönderdiğimiz prop'umuzu aldık.
+
+// Her defasında bir kayıt geliyor ve biz bu kayıtları her defasında bir li içersinde gösteriyoruz.
+
+// Her mapleme işleminde indis ve key'i unutma. Listeleme elemanının en dışındaki etikete vermememiz gerekiyor.
