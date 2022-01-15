@@ -133,44 +133,44 @@ setTimeout(() => {
 
 // import fetch from "node-fetch"; 
 
-// fetch("https://jsonplaceholder.typicode.com/users")
-// .then((data) => data.json())
-// .then((users) => {
-// console.log("Users yüklendi!", users)
+fetch("https://jsonplaceholder.typicode.com/users")
+.then((data) => data.json())
+.then((users) => {
+console.log("Users yüklendi!", users)
 
-// fetch("https://jsonplaceholder.typicode.com/posts/1")
-// .then((data) => data.json())
-// .then((post) => { 
-//     console.log("Post 1 Yüklendi",post)
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+.then((data) => data.json())
+.then((post) => { 
+    console.log("Post 1 Yüklendi",post)
 
-// fetch("https://jsonplaceholder.typicode.com/posts/2")
-// .then((data) => data.json())
-// .then((data) => console.log("Post 2 Yüklendi", data))
-//    });
-// });
+fetch("https://jsonplaceholder.typicode.com/posts/2")
+.then((data) => data.json())
+.then((data) => console.log("Post 2 Yüklendi", data))
+   });
+});
 
 // Peki böyle güzel ama bu oldukça karmaşık gözüküyor burda 3 tane değilde 10 tane işlem olsa böyle mi yapacağız?
 // Bu noktada keywordleri kullanarak bu işi kolaylaştırabiliriz.
 
 // import fetch from "node-fetch"; 
 
-// async function getData() {
-//  const users = await (await fetch("https://jsonplaceholder.typicode.com/users"))
-//  .json();
+async function getData() {
+ const users = await (await fetch("https://jsonplaceholder.typicode.com/users"))
+ .json();
 
-//  const post1 = await (await fetch("https://jsonplaceholder.typicode.com/posts/1"))
-//  .json();
+ const post1 = await (await fetch("https://jsonplaceholder.typicode.com/posts/1"))
+ .json();
 
-//  const post2 = await (await fetch("https://jsonplaceholder.typicode.com/posts/2"))
-//  .json();
+ const post2 = await (await fetch("https://jsonplaceholder.typicode.com/posts/2"))
+ .json();
 
 
-//  console.log("users", users);
-//  console.log("post1", post1);
-//  console.log("post2", post2);
-// }
+ console.log("users", users);
+ console.log("post1", post1);
+ console.log("post2", post2);
+}
 
-// getData()
+getData()
 
 // async asengron anlamında 
 // fetch'in başına await koymazsam burda beklemez bir sonraki satıra devam eder. 

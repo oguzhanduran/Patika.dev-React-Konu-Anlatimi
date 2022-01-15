@@ -7,25 +7,25 @@
 // import fetch from "node-fetch";
 // import axios from "axios";
 
-// (async () => {
+(async () => {
 
-//     const users =  (await axios("https://jsonplaceholder.typicode.com/users"))
+    const users =  (await axios("https://jsonplaceholder.typicode.com/users"))
     
    
-//     const post1 =  (await axios("https://jsonplaceholder.typicode.com/posts/1"))
+    const post1 =  (await axios("https://jsonplaceholder.typicode.com/posts/1"))
     
    
-//     const post2 =  (await axios("https://jsonplaceholder.typicode.com/posts/2"))
+    const post2 =  (await axios("https://jsonplaceholder.typicode.com/posts/2"))
     
    
    
-//     console.log("users", users);
-//     console.log("post1", post1);
-//     console.log("post2", post2);
+    console.log("users", users);
+    console.log("post1", post1);
+    console.log("post2", post2);
    
-//       })
+      })
       
-//       ()
+      ()
 
       // Yukarda fetch ifadelerinin yerine axios yazdık, .json() işlemlerini ve json kullandığımız için kullanmamız gereken await işlemlerini sildim.
       // Bunu yukardaki şekilde çalıştırdığımızda anlam veremediğimiz datalar geliyor.
@@ -92,7 +92,7 @@ import axios from "axios";
 
 // Promise'ın callback fonksiyonunda resolve ve reject adında 2 parametre var resolve demek bu işlem başarıyla gerçekleşmiş al sana datam demek reject ise kod çalışırken bir problem oluştu bunu reddettim demek.
 
-// Bir promise reject olduğunda then çalışır reject olduğundada catch çalışır.
+// Bir promise resolve olduğunda then çalışır reject olduğundada catch çalışır.
 
 
 // Yukarda bir fetch bir data sağlanıyordu ve biz onu kullanıyorduk biz nasıl yapcaz. aşağıdaki gibi data'yı resolve ederken parametre geçebiliriz. 
