@@ -9,17 +9,46 @@
 
 // export default Button;
 
+// //-------------------------------------------------------------------------------------------------------------------------------------
+
+// // Context Provider
+// // Bu derste context'den sağlamış olduğumuz dataları değiştirdiğimiz anda kullanılan componentlerde de anlık olarak değiştiğini gözlemlemeye çalışcaz.
+
+// import { useContext } from "react"; // aşağıdaki ThemeContext ifadesini kullanabilmek için useContext hook'unu import ettik.
+// import ThemeContext from "../context/ThemeContext";
+
+// function Button() {
+//   // app.js'de buton componentinin içine yazdıklarımızı children yazıp return ettiğimizde tüm biligleri alırız.
+//   const { theme, setTheme } = useContext(ThemeContext);
+
+//   return (
+//     <div>
+//       Active Theme: {theme}
+//       <br />
+//       <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+//         Change Theme
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default Button;
 //-------------------------------------------------------------------------------------------------------------------------------------
 
-// Context Provider
-// Bu derste context'den sağlamış olduğumuz dataları değiştirdiğimiz anda kullanılan componentlerde de anlık olarak değiştiğini gözlemlemeye çalışcaz.
+// Custom Context Hook
 
-import { useContext } from "react"; // aşağıdaki ThemeContext ifadesini kullanabilmek için useContext hook'unu import ettik.
-import ThemeContext from "../context/ThemeContext";
+// Biz her defasında bir componentte bir context'i kullanacağımız zaman örneğin ThemeContext'ini kullanacağımız zaman önce context'in kendisini import ediyoruz sonra react'in altından useContext'i alıp useContext'in içinde kullanmak istediğimiz context'i kullanıyoruz.
+// Bunu her defa yapmak insanı yorabiliyor, bunu güzelleştirme şansımız var.
+
+// import { useContext } from "react";
+// import ThemeContext from "../context/ThemeContext";
+
+//kendi hook'umuzu oluşturduğumuz için artık yukardakileri import etmemize gerek yok.
+
+import { useTheme } from "../context/ThemeContext";
 
 function Button() {
-  // app.js'de buton componentinin içine yazdıklarımızı children yazıp return ettiğimizde tüm biligleri alırız.
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useTheme();
 
   return (
     <div>

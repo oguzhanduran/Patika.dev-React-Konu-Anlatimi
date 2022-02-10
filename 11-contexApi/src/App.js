@@ -85,4 +85,5 @@ export default App;
 //     </UserProvider>
 //   </ThemeProvider>
 
-// Yukardaki gibi yazdığımızda UserProvider yani user context'i ThemeContext'deki datayı kullanabilir durumda oluyor..
+// Yukardaki gibi yazdığımızda UserProvider yani user context'i ThemeContext'deki datayı kullanabilir durumda oluyor.
+// Birden fazla contex kullanma işi bu şekilde tek yapmamız gereken kaç tane context kullanmak istiyorsak onları import edip burda yazmamız yeterli.

@@ -1,9 +1,13 @@
-import { useContext, useState } from "react";
+// import { useContext } from "react";
 
-import ThemeContext from "../context/ThemeContext"; // import ettiğimiz context'i aşağıda kullandık.
+import { useTheme } from "../context/ThemeContext";
+
+// import ThemeContext from "../context/ThemeContext"; // import ettiğimiz context'i aşağıda kullandık.
 
 function Header() {
-  const { theme, setTheme } = useContext(ThemeContext);
+  // const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useTheme();
+
   return (
     <div>
       Active Theme: {theme}
